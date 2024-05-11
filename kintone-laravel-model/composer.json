@@ -1,0 +1,13 @@
+{
+    "name": "x48t96pa/kintone-laravel-model",
+    "description": "kintone API for laravel model",
+    "minimum-stability": "stable",
+    "type": "library",
+    "require": {},
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "X48t96pa\\Kintone\\": "src/"
+        }
+    }
+}
