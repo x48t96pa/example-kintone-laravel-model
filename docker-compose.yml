@@ -3,20 +3,6 @@ version: "3.8"
 
 # 利用する コンテナ 一覧
 services:
-  # composer 実行用
-  lib:
-    # 管理コンテナ名
-    container_name: ${APP_NAME}-composer
-    # Dockerファイルにて 定義
-    build: ./docker/php
-    # 場所
-    volumes:
-      - ./kintone-laravel-model/:/var/www/html
-    # 環境設定値設定 TODO:env以外は最終的には使わない？
-    environment:
-      # アプリ系
-      - APP_NAME=${APP_NAME}
-      - APP_ENV=${APP_ENV:-local}
   # example-laravelよう
   app:
     # 管理コンテナ名
@@ -28,7 +14,8 @@ services:
     # 場所
     volumes:
       - ./example-laravel/:/var/www/html
-      # TODO: composer開発の composerにしたい プロジェクトをマウントする形がベスト??
+      # ライブラリ開発のやつ読み込み用 composer実行を個別にしたい、環境設定値を個別にしたいは コンテナ化したほうが良さそう
+      - ./kintone-laravel-model/:/var/www/kintone-laravel-model
     # 利用ポート
     ports:
       # TODO: フロントエンド vite使うってことで bladeで作るけど...

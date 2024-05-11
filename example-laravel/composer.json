@@ -4,10 +4,20 @@
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../kintone-laravel-model",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "x48t96pa/kintone-laravel-model": "*@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
