@@ -45,3 +45,22 @@ XXXModel::find(1); // → record.json の id検索実行的な
 
 ## ライセンス
 MITライセンス
+
+## 計画
+[目指したいゴールはORCLEのModelのような構成で目指したい](https://github.com/yajra/laravel-oci8/tree/master)
+名前：laravel-kintoneにして作っていこう!
+
+1. abstract KintoneModel のクラスだけで完結 バージョン
+1. 接続先決定クラスとconfigの対応
+1. 条件指定 取得の作成
+1. 登録・更新の作成
+1. 関数によって、単体取得 APIに通信されるようにする
+1. 変数またはクラスによって、別API(ユーザー情報やアプリの設定情報など)に通信されるようにする
+
+### 上記詳細
+1. abstract KintoneModel に ::all() 関数を実装(queryとかは使わず)し → records.jsonが取得できる
+1. Connectionクラスを作成し 接続先のKintoneの柔軟に対応
+1. Query組み込み, records.json 情報取得の where句の自動生成
+1. Query?にて records.json API s登録・更新のロジック組み込み
+1. ::find() 関数では record.jsonのAPIに通信する どのAPIに通信できるかの拡張
+1. ユーザー情報の時 ::all() にて ユーザー一覧.jsonのAPIに通信する どのAPIに通信できるかの拡張（レコード以外）
